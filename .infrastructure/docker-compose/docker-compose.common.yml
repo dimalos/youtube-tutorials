@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+    y2b_app_db:
+      image: mariadb:10.4
+      container_name: y2b-db
+      working_dir: /application
+      volumes:
+        - ../.db:/var/lib/mysql
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=y2b
+        - MYSQL_USER=y2b
+        - MYSQL_PASSWORD=y2b
+      ports:
+        - "3616:3306"
